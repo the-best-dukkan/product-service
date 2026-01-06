@@ -6,6 +6,7 @@ import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+import org.springframework.data.util.ProxyUtils;
 
 import java.math.BigDecimal;
 
@@ -23,4 +24,17 @@ public class TaxCategory extends Auditable {
 
     private String name;
     private BigDecimal percentage;
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != ProxyUtils.getUserClass(o)) return false;
+        TaxCategory that = (TaxCategory) o;
+        return id != null && id.equals(that.id);
+    }
+
+    @Override
+    public int hashCode() {
+        return getClass().hashCode();
+    }
 }

@@ -6,6 +6,7 @@ import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+import org.springframework.data.util.ProxyUtils;
 
 @Entity
 @Table(name = "product_image")
@@ -26,4 +27,17 @@ public class ProductImage extends Auditable {
     private String url;
     private Integer position;
     private Boolean isPrimary;
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != ProxyUtils.getUserClass(o)) return false;
+        ProductImage that = (ProductImage) o;
+        return id != null && id.equals(that.id);
+    }
+
+    @Override
+    public int hashCode() {
+        return getClass().hashCode();
+    }
 }

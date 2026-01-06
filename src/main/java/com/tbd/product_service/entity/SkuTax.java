@@ -10,6 +10,7 @@ import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+import org.springframework.data.util.ProxyUtils;
 
 @Entity
 @Table(name = "sku_tax")
@@ -25,4 +26,17 @@ public class SkuTax extends Auditable {
 
     @Id
     private Long taxCategoryId;
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != ProxyUtils.getUserClass(o)) return false;
+        SkuTax that = (SkuTax) o;
+        return skuId != null && skuId.equals(that.skuId) && taxCategoryId.equals(that.taxCategoryId);
+    }
+
+    @Override
+    public int hashCode() {
+        return getClass().hashCode();
+    }
 }

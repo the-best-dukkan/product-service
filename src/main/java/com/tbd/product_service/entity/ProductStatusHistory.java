@@ -7,6 +7,7 @@ import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+import org.springframework.data.util.ProxyUtils;
 
 import java.time.Instant;
 
@@ -32,4 +33,17 @@ public class ProductStatusHistory extends Auditable {
 
     private Instant changedAt;
     private String changedBy;
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != ProxyUtils.getUserClass(o)) return false;
+        ProductStatusHistory that = (ProductStatusHistory) o;
+        return id != null && id.equals(that.id);
+    }
+
+    @Override
+    public int hashCode() {
+        return getClass().hashCode();
+    }
 }

@@ -10,6 +10,7 @@ import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+import org.springframework.data.util.ProxyUtils;
 
 @Entity
 @Table(name = "sku_attribute")
@@ -27,4 +28,17 @@ public class SkuAttribute extends Auditable {
     private String attributeName;
 
     private String attributeValue;
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != ProxyUtils.getUserClass(o)) return false;
+        SkuAttribute that = (SkuAttribute) o;
+        return skuId != null && skuId.equals(that.skuId) && attributeName.equals(that.attributeName);
+    }
+
+    @Override
+    public int hashCode() {
+        return getClass().hashCode();
+    }
 }

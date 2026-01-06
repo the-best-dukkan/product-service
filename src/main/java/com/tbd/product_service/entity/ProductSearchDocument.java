@@ -9,6 +9,7 @@ import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+import org.springframework.data.util.ProxyUtils;
 
 @Entity
 @Table(name = "product_search_document")
@@ -27,4 +28,17 @@ public class ProductSearchDocument extends Auditable {
 
     @Column(columnDefinition = "jsonb")
     private String attributesJson;
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != ProxyUtils.getUserClass(o)) return false;
+        ProductSearchDocument that = (ProductSearchDocument) o;
+        return productId != null && productId.equals(that.productId);
+    }
+
+    @Override
+    public int hashCode() {
+        return getClass().hashCode();
+    }
 }
