@@ -1,0 +1,79 @@
+plugins {
+	id 'java'
+	id 'org.springframework.boot' version '3.5.9'
+	id 'io.spring.dependency-management' version '1.1.7'
+}
+
+group = 'com.tbd'
+version = '0.0.1-SNAPSHOT'
+description = 'Service for managing products in the-best-dukkan'
+
+java {
+	toolchain {
+		languageVersion = JavaLanguageVersion.of(21)
+	}
+}
+
+repositories {
+	mavenLocal()
+	mavenCentral()
+
+	// GitHub Packages repository for common libraries
+	maven {
+		name = "GitHubPackages"
+		url = uri("https://maven.pkg.github.com/the-best-dukkan/*")
+		credentials {
+			// This will look for the keys we added to your ~/.gradle/gradle.properties
+			username = project.findProperty("gpr.user") ?: System.getenv("GITHUB_ACTOR")
+			password = project.findProperty("gpr.key") ?: System.getenv("GITHUB_TOKEN")
+		}
+	}
+}
+
+ext {
+	commonSecurityVersion = '1.0.3'
+	commonCodeVersion = '1.0.11'
+	lombokVersion = '1.18.38'
+	mapstructVersion = '1.6.3'
+	lombokMapstructBindingVersion = '0.2.0'
+	set('springCloudVersion', "2025.0.1")
+}
+
+dependencies {
+	implementation "com.tbd:common-security:${commonSecurityVersion}"
+	implementation "com.tbd:common-code:${commonCodeVersion}"
+
+	implementation 'org.springframework.boot:spring-boot-starter-web'
+	implementation 'org.springframework.boot:spring-boot-starter-actuator'
+	implementation 'org.springframework.cloud:spring-cloud-starter-netflix-eureka-client'
+	implementation 'org.springframework.cloud:spring-cloud-starter-config'
+	implementation 'org.springframework.boot:spring-boot-starter-cache'
+
+	implementation 'org.springframework.boot:spring-boot-starter-validation'
+
+	implementation 'org.liquibase:liquibase-core'
+	runtimeOnly 'org.postgresql:postgresql'
+
+	// Spring Data JPA
+	implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
+
+	compileOnly "org.projectlombok:lombok:${lombokVersion}"
+	annotationProcessor "org.projectlombok:lombok:${lombokVersion}"
+
+	implementation "org.mapstruct:mapstruct:${mapstructVersion}"
+	annotationProcessor "org.mapstruct:mapstruct-processor:${mapstructVersion}"
+	annotationProcessor "org.projectlombok:lombok-mapstruct-binding:${lombokMapstructBindingVersion}"
+
+	testImplementation 'org.springframework.boot:spring-boot-starter-test'
+	testRuntimeOnly 'org.junit.platform:junit-platform-launcher'
+}
+
+dependencyManagement {
+	imports {
+		mavenBom "org.springframework.cloud:spring-cloud-dependencies:${springCloudVersion}"
+	}
+}
+
+tasks.named('test') {
+	useJUnitPlatform()
+}
