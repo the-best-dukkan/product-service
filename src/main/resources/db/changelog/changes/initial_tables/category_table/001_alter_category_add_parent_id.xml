@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+                      http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-4.31.xsd"
+        objectQuotingStrategy="QUOTE_ONLY_RESERVED_WORDS">
+
+    <changeSet id="add-category-parent-fk" author="Rohit Kumar">
+
+        <!-- 1. Add parent_id column -->
+        <addColumn tableName="category">
+            <column name="parent_id" type="BIGINT">
+                <constraints nullable="true"/>
+            </column>
+        </addColumn>
+
+        <!-- 2. Add self-referencing foreign key -->
+        <addForeignKeyConstraint
+                baseTableName="category"
+                baseColumnNames="parent_id"
+                referencedTableName="category"
+                referencedColumnNames="id"
+                constraintName="fk_category_parent"
+                onDelete="RESTRICT"/>
+
+        <createIndex indexName="idx_category_parent_id" tableName="category">
+            <column name="parent_id"/>
+        </createIndex>
+
+    </changeSet>
+
+</databaseChangeLog>

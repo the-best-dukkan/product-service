@@ -10,10 +10,8 @@
             <column autoIncrement="true" name="id" type="BIGINT">
                 <constraints nullable="false" primaryKey="true" primaryKeyName="pk_brand"/>
             </column>
-            <column name="created_date" type="DATETIME">
-                <constraints nullable="false"/>
-            </column>
-            <column name="modified_date" type="DATETIME"/>
+            <column name="created_date" type="TIMESTAMP"/>
+            <column name="modified_date" type="TIMESTAMP"/>
             <column name="name" type="VARCHAR(300)">
                 <constraints nullable="false"/>
             </column>
@@ -26,10 +24,8 @@
             <column autoIncrement="true" name="id" type="BIGINT">
                 <constraints nullable="false" primaryKey="true" primaryKeyName="pk_category"/>
             </column>
-            <column name="created_date" type="DATETIME">
-                <constraints nullable="false"/>
-            </column>
-            <column name="modified_date" type="DATETIME"/>
+            <column name="created_date" type="TIMESTAMP"/>
+            <column name="modified_date" type="TIMESTAMP"/>
             <column name="name" type="VARCHAR(300)">
                 <constraints nullable="false"/>
             </column>
@@ -47,10 +43,8 @@
             <column autoIncrement="true" name="id" type="BIGINT">
                 <constraints nullable="false" primaryKey="true" primaryKeyName="pk_price"/>
             </column>
-            <column name="created_date" type="DATETIME">
-                <constraints nullable="false"/>
-            </column>
-            <column name="modified_date" type="DATETIME"/>
+            <column name="created_date" type="TIMESTAMP"/>
+            <column name="modified_date" type="timestamp"/>
             <column name="sku_id" type="BIGINT">
                 <constraints nullable="false"/>
             </column>
@@ -68,10 +62,8 @@
             <column autoIncrement="true" name="id" type="BIGINT">
                 <constraints nullable="false" primaryKey="true" primaryKeyName="pk_product"/>
             </column>
-            <column name="created_date" type="DATETIME">
-                <constraints nullable="false"/>
-            </column>
-            <column name="modified_date" type="DATETIME"/>
+            <column name="created_date" type="TIMESTAMP"/>
+            <column name="modified_date" type="TIMESTAMP"/>
             <column name="product_code" type="VARCHAR(255)">
                 <constraints nullable="false"/>
             </column>
@@ -88,10 +80,8 @@
             <column name="product_id" type="BIGINT">
                 <constraints primaryKey="true" primaryKeyName="pk_product_category"/>
             </column>
-            <column name="created_date" type="DATETIME">
-                <constraints nullable="false"/>
-            </column>
-            <column name="modified_date" type="DATETIME"/>
+            <column name="created_date" type="TIMESTAMP"/>
+            <column name="modified_date" type="TIMESTAMP"/>
             <column name="category_id" type="BIGINT">
                 <constraints primaryKey="true" primaryKeyName="pk_product_category"/>
             </column>
@@ -102,10 +92,8 @@
             <column autoIncrement="true" name="id" type="BIGINT">
                 <constraints nullable="false" primaryKey="true" primaryKeyName="pk_product_image"/>
             </column>
-            <column name="created_date" type="DATETIME">
-                <constraints nullable="false"/>
-            </column>
-            <column name="modified_date" type="DATETIME"/>
+            <column name="created_date" type="TIMESTAMP"/>
+            <column name="modified_date" type="TIMESTAMP"/>
             <column name="product_id" type="BIGINT"/>
             <column name="url" type="VARCHAR(255)"/>
             <column name="position" type="INT"/>
@@ -117,10 +105,8 @@
             <column name="product_id" type="BIGINT">
                 <constraints primaryKey="true" primaryKeyName="pk_product_search_document"/>
             </column>
-            <column name="created_date" type="DATETIME">
-                <constraints nullable="false"/>
-            </column>
-            <column name="modified_date" type="DATETIME"/>
+            <column name="created_date" type="TIMESTAMP"/>
+            <column name="modified_date" type="TIMESTAMP"/>
             <column name="title" type="VARCHAR(255)"/>
             <column name="brand_name" type="VARCHAR(255)"/>
             <column name="category_path" type="VARCHAR(255)"/>
@@ -132,10 +118,8 @@
             <column autoIncrement="true" name="id" type="BIGINT">
                 <constraints nullable="false" primaryKey="true" primaryKeyName="pk_product_status_history"/>
             </column>
-            <column name="created_date" type="DATETIME">
-                <constraints nullable="false"/>
-            </column>
-            <column name="modified_date" type="DATETIME"/>
+            <column name="created_date" type="TIMESTAMP"/>
+            <column name="modified_date" type="TIMESTAMP"/>
             <column name="product_id" type="BIGINT"/>
             <column name="old_status" type="VARCHAR(255)"/>
             <column name="new_status" type="VARCHAR(255)"/>
@@ -148,10 +132,8 @@
             <column autoIncrement="true" name="id" type="BIGINT">
                 <constraints nullable="false" primaryKey="true" primaryKeyName="pk_sku"/>
             </column>
-            <column name="created_date" type="DATETIME">
-                <constraints nullable="false"/>
-            </column>
-            <column name="modified_date" type="DATETIME"/>
+            <column name="created_date" type="TIMESTAMP"/>
+            <column name="modified_date" type="TIMESTAMP"/>
             <column name="sku_code" type="VARCHAR(255)">
                 <constraints nullable="false"/>
             </column>
@@ -170,10 +152,8 @@
             <column name="sku_id" type="BIGINT">
                 <constraints primaryKey="true" primaryKeyName="pk_sku_attribute"/>
             </column>
-            <column name="created_date" type="DATETIME">
-                <constraints nullable="false"/>
-            </column>
-            <column name="modified_date" type="DATETIME"/>
+            <column name="created_date" type="TIMESTAMP"/>
+            <column name="modified_date" type="TIMESTAMP"/>
             <column name="attribute_name" type="VARCHAR(255)">
                 <constraints primaryKey="true" primaryKeyName="pk_sku_attribute"/>
             </column>
@@ -185,10 +165,8 @@
             <column autoIncrement="true" name="id" type="BIGINT">
                 <constraints nullable="false" primaryKey="true" primaryKeyName="pk_sku_image"/>
             </column>
-            <column name="created_date" type="DATETIME">
-                <constraints nullable="false"/>
-            </column>
-            <column name="modified_date" type="DATETIME"/>
+            <column name="created_date" type="TIMESTAMP"/>
+            <column name="modified_date" type="TIMESTAMP"/>
             <column name="sku_id" type="BIGINT"/>
             <column name="url" type="VARCHAR(255)"/>
         </createTable>
@@ -198,10 +176,8 @@
             <column autoIncrement="true" name="id" type="BIGINT">
                 <constraints nullable="false" primaryKey="true" primaryKeyName="pk_sku_price_history"/>
             </column>
-            <column name="created_date" type="DATETIME">
-                <constraints nullable="false"/>
-            </column>
-            <column name="modified_date" type="DATETIME"/>
+            <column name="created_date" type="TIMESTAMP"/>
+            <column name="modified_date" type="TIMESTAMP"/>
             <column name="sku_id" type="BIGINT"/>
             <column name="old_price" type="DECIMAL"/>
             <column name="new_price" type="DECIMAL"/>
@@ -213,10 +189,8 @@
             <column name="sku_id" type="BIGINT">
                 <constraints primaryKey="true" primaryKeyName="pk_sku_tax"/>
             </column>
-            <column name="created_date" type="DATETIME">
-                <constraints nullable="false"/>
-            </column>
-            <column name="modified_date" type="DATETIME"/>
+            <column name="created_date" type="TIMESTAMP"/>
+            <column name="modified_date" type="TIMESTAMP"/>
             <column name="tax_category_id" type="BIGINT">
                 <constraints primaryKey="true" primaryKeyName="pk_sku_tax"/>
             </column>
@@ -227,10 +201,8 @@
             <column autoIncrement="true" name="id" type="BIGINT">
                 <constraints nullable="false" primaryKey="true" primaryKeyName="pk_tax_category"/>
             </column>
-            <column name="created_date" type="DATETIME">
-                <constraints nullable="false"/>
-            </column>
-            <column name="modified_date" type="DATETIME"/>
+            <column name="created_date" type="TIMESTAMP"/>
+            <column name="modified_date" type="TIMESTAMP"/>
             <column name="name" type="VARCHAR(255)"/>
             <column name="percentage" type="DECIMAL"/>
         </createTable>

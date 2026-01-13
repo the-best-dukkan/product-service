@@ -28,6 +28,8 @@ public class Category extends Auditable {
     @Column(nullable = false)
     private String path;
 
+    @Column(name = "parent_id")
+    private Long parentId;
     private Integer level;
     private Boolean isLeaf;
 
