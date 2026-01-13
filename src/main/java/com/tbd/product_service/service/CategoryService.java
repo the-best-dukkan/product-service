@@ -1,9 +1,9 @@
 package com.tbd.product_service.service;
 
-import com.tbd.product_service.dto.CreateCategoryRequest;
-import com.tbd.product_service.entity.Category;
+import com.tbd.product_service.dto.CreateResponse;
+import com.tbd.product_service.dto.category.CreateCategoryRequest;
 
 public interface CategoryService {
 
-    Category createCategory(CreateCategoryRequest request);
+    CreateResponse createCategory(CreateCategoryRequest request);
 }

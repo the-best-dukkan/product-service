@@ -6,5 +6,6 @@
     http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-latest.xsd">
 
     <include file="/db/changelog/changes/initial_tables/initial_tables_auto_generated.xml"/>
-    <include file="/db/changelog/changes/initial_tables/category_table/001_alter_category_add_parent_id.xml"/>
+    <include file="/db/changelog/changes/category_table/001_alter_category_add_parent_id.xml"/>
+    <include file="/db/changelog/changes/brand/001_alter_brand_add_new_columns.xml"/>
 </databaseChangeLog>

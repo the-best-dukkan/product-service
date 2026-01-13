@@ -24,6 +24,13 @@ public class Brand extends Auditable {
     @Column(unique = true, length = 300, nullable = false)
     private String name;
 
+    @Column(name = "logo_url", length = 200)
+    private String logoUrl;
+    @Column(length = 500)
+    private String description;
+    @Column(name = "website_url", length = 200)
+    private String websiteUrl;
+
     private String slug;
 
     @Enumerated(EnumType.STRING)

@@ -1,4 +1,4 @@
-package com.tbd.product_service.dto;
+package com.tbd.product_service.dto.category;
 
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.Size;
